@@ -1,0 +1,38 @@
+
+.produtos-medios {
+    width: 380px;
+    height: 250px;
+    box-sizing: border-box;
+    margin: 10px;
+    padding: 30px;
+    box-shadow: 5px 5px 5px 4px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-around;
+    flex-grow: 1;
+}
+
+.produtos-medios .imagem {
+    min-width: 160px;
+    min-height: calc(100%-60px);
+}
+
+.produtos-medios .produtos-medios-dados .nome {
+    font-weight: bold;
+    font-size: 150%;
+    margin-top: 10px;
+}
+
+.produtos-medios .produtos-medios-dados .linha {
+    width: 40px;
+    border-top: 1px solid black;
+    margin: 20px 0;
+}
+
+.produtos-medios .produtos-medios-dados .comprar {
+    color: white;
+    background-color: darkred;
+    padding: 10px;
+}
+
+#sapato { background: url("./imagens/sapato.jpg") no-repeat center / contain; } 
+#skatista { background: url("./imagens/skatista.jpg") no-repeat center / contain; } 

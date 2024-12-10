@@ -1,0 +1,79 @@
+
+.cabecalho {
+    width: 75%;
+    margin: auto;
+}
+
+.cabecalho .pesquisa  {
+    /* display: flex;
+    justify-content: space-between;
+    align-items: center; */
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cabecalho .pesquisa > *:not(.logo) {
+    background-color: transparent;
+    border: transparent;
+    margin: 10px 5px;
+}
+
+.cabecalho .pesquisa .logo {
+    min-width: 120px;
+    min-height: 50px;
+    background: url("./VansLogo.png") no-repeat center / cover;
+}
+
+.cabecalho .pesquisa select option {
+    color: black;
+}
+
+.cabecalho .pesquisa a {
+    text-decoration: none;
+}
+
+.cabecalho .pesquisa .tracoBord {
+    width: 80px;
+    height: 50px;
+    border-left: 2px solid lightgray;
+}
+
+.cabecalho .opcoes {
+    height: 50px;
+    box-sizing: content-box;
+    border-top: 2px solid lightgray;
+    list-style: none;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.cabecalho .opcoes .dropdown {
+    position: relative;
+    margin: 10px 5px;
+}
+
+.cabecalho .opcoes .dropdown .dropdown-content{
+    display: none;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 1;
+}
+.cabecalho .opcoes .dropdown:hover .dropdown-content{
+    display: block;
+}
+
+.cabecalho .opcoes .dropdown .dropdown-content a {
+    color: black;
+    text-decoration: none;
+    text-shadow: none;
+}
+

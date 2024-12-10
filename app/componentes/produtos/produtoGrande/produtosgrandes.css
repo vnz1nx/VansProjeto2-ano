@@ -1,0 +1,57 @@
+
+.produtos-grandes {
+    min-width: 360px;
+    height: 250px;
+    box-sizing: border-box;
+    margin: 10px;
+    box-shadow: 5px 5px 5px 4px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-around;
+    flex-grow: 1;
+}
+
+.itens {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#volta, #passa {
+    display: block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    color: darkgray;
+    background-color: brown;
+}
+
+.produtos-grandes .itens .item > * {
+    display: none;
+    box-shadow: none;
+}
+
+.produtos-grandes .itens .item > *:first-child {
+    display: flex;
+    margin: 0;
+}
+
+.produtos-grandes .produtos-grandes-dados .nome {
+    font-weight: bold;
+    font-size: 150%;
+    margin-left: 20px;
+    margin-top: 40px;
+}
+
+.produtos-grandes .produtos-grandes-dados .linha {
+    width: 40px;
+    border-top: 1px solid black;
+    margin: 20px 0;
+    margin-left: 20px;
+}
+
+.produtos-grandes .produtos-grandes-dados .comprar {
+    color: white;
+    background-color: darkred;
+    margin-left: 20px;
+    padding: 10px 5px;
+}

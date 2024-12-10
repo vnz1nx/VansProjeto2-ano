@@ -1,0 +1,49 @@
+
+.produtos-pequenos {
+    width: 180px;
+    height: 250px;
+    box-sizing: border-box;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 5px 5px 5px 4px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.produtos-pequenos .imagem {
+    width: 100px;
+    aspect-ratio: 1;
+    background-color: lightgray;
+}
+
+.produtos-pequenos .nome {
+    color:black;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.produtos-pequenos .linha {
+    width: 20px;
+    border-top: 1px solid black;
+    margin: 10px;
+}
+
+.produtos-pequenos .valor {
+    color: red;
+}
+
+#sapato1 { background: url("./imagens/sapato1.jpg") no-repeat center / cover; }
+#sapato2 { background: url("./imagens/sapato2.jpg") no-repeat center / cover; }
+#sapato3 { background: url("./imagens/sapato3.jpg") no-repeat center / contain; }
+#sapato4 { background: url("./imagens/sapato4.jpg") no-repeat center / cover; }
+#sapato5 { background: url("./imagens/sapato5.jpg") no-repeat center / cover; }
+#paisagem1 { background: url("./imagens/paisagem1.jpg") no-repeat center / cover; }
+#paisagem2 { background: url("./imagens/paisagem2.jpg") no-repeat center / cover; }
+#paisagem3 { background: url("./imagens/paisagem3.jpg") no-repeat center / cover; }
+#camisa1 { background: url("./imagens/camisa1.jpg") no-repeat center / cover; }
+#camisa2 { background: url("./imagens/camisa2.jpg") no-repeat center / cover; }
+#camisa3 { background: url("./imagens/camisa3.jpg") no-repeat center / cover; }
