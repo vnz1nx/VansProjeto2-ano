@@ -6,7 +6,6 @@ import "./vans.css"
 
 export default function Vans(){
     return(
-        // a melhor largura é a de 1000px
         <div className="vans">
             <InicioVans/>
             <Produtos/>

@@ -1,4 +1,3 @@
-
 .inicio {
     min-width: 400px;
     min-height: 400px;
@@ -25,4 +24,16 @@
     padding: 10px;
     border: none;
     background-color: darkred;
+    cursor: pointer; /* Adiciona cursor de mão para indicar interatividade */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave */
+}
+
+/* Efeito de Hover no Botão */
+.inicio .mensagem button:hover {
+    background-color: crimson; /* Altera a cor de fundo quando o mouse passa sobre */
+    transform: scale(1.1); /* Aumenta o botão em 10% */
+}
+
+.inicio .mensagem button:active {
+    transform: scale(1); /* Reseta o zoom quando o botão é pressionado */
 }

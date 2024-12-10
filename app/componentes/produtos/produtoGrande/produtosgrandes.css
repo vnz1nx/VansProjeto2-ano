@@ -1,10 +1,8 @@
-
 .produtos-grandes {
     min-width: 360px;
     height: 250px;
     box-sizing: border-box;
     margin: 10px;
-    box-shadow: 5px 5px 5px 4px rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: space-around;
     flex-grow: 1;
@@ -23,16 +21,29 @@
     text-align: center;
     color: darkgray;
     background-color: brown;
+    border: none;
+    cursor: pointer;
+}
+
+#volta:hover, #passa:hover {
+    background-color: darkred;
+    color: white;
 }
 
 .produtos-grandes .itens .item > * {
     display: none;
     box-shadow: none;
+    transition: transform 0.3s ease-in-out;
 }
 
 .produtos-grandes .itens .item > *:first-child {
     display: flex;
     margin: 0;
+}
+
+
+.produtos-grandes .itens .item:hover > *:first-child {
+    transform: scale(1.1);
 }
 
 .produtos-grandes .produtos-grandes-dados .nome {
@@ -54,4 +65,11 @@
     background-color: darkred;
     margin-left: 20px;
     padding: 10px 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.produtos-grandes .produtos-grandes-dados .comprar:hover {
+    background-color: crimson;
 }

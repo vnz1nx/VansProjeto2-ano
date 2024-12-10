@@ -15,7 +15,6 @@ export default function Cabecalho(){
                 <a href="#" className='Ajuda'>AJUDA</a>
                 <a href="#" className='Lojas'>LOJAS</a>
                 <a href="#" className='Conta'>CONTA</a>
-                {/* <div className='tracoBord'></div> */}
             </div>
 
             <ul className="opcoes">

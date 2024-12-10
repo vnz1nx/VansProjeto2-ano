@@ -21,7 +21,6 @@ html, body {
     scrollbar-width: none;
 }
 
-/* Para navegadores baseados em WebKit (Chrome, Edge, Safari) */
 .vans::-webkit-scrollbar {
-    display: none; /* Oculta a barra */
+    display: none;
 }

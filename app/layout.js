@@ -4,8 +4,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Vans",
-  description: "Pagina da Vans",
+  title: "Encontre o Castelo!",
+  description: "Jogo de aventura.",
 };
 
 export default function RootLayout({ children }) {

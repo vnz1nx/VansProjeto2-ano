@@ -1,19 +1,29 @@
-
 .produtos-medios {
     width: 380px;
     height: 250px;
     box-sizing: border-box;
     margin: 10px;
     padding: 30px;
-    box-shadow: 5px 5px 5px 4px rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: space-around;
     flex-grow: 1;
+    transition: transform 0.3s ease-in-out; /* Adiciona transição suave */
+    cursor: pointer; /* Adiciona cursor de mão */
+}
+
+.produtos-medios:hover {
+    transform: scale(1.1); /* Aumenta o item em 10% */
 }
 
 .produtos-medios .imagem {
     min-width: 160px;
-    min-height: calc(100%-60px);
+    min-height: calc(100% - 60px); /* Corrige o cálculo do tamanho */
+    background-color: lightgray;
+    transition: transform 0.3s ease-in-out; /* Adiciona transição suave */
+}
+
+.produtos-medios .imagem:hover {
+    transform: scale(1.1); /* Aumenta a imagem em 10% */
 }
 
 .produtos-medios .produtos-medios-dados .nome {
@@ -32,7 +42,14 @@
     color: white;
     background-color: darkred;
     padding: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-#sapato { background: url("./imagens/sapato.jpg") no-repeat center / contain; } 
-#skatista { background: url("./imagens/skatista.jpg") no-repeat center / contain; } 
+.produtos-medios .produtos-medios-dados .comprar:hover {
+    background-color: crimson;
+}
+
+#sapato { background: url("./imagens/sapato.jpg") no-repeat center / contain; }
+#skatista { background: url("./imagens/skatista.jpg") no-repeat center / contain; }
