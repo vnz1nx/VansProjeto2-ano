@@ -2,7 +2,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Garante que padding e bordas não afetem as dimensões */
+    box-sizing: border-box;
 }
 
 html, body {
@@ -12,14 +12,13 @@ html, body {
     height: 100%;
 }
 
-/* Oculta a barra de rolagem horizontal e vertical */
 .vans {
     min-width: 400px;
     width: 100vw;
     height: 100vh;
-    overflow-y: scroll; /* Mantém o scroll funcional */
+    overflow-y: scroll;
     overflow-x: hidden;
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none;
 }
 
 /* Para navegadores baseados em WebKit (Chrome, Edge, Safari) */
