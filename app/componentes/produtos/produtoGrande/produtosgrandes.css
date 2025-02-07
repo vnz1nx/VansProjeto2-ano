@@ -73,3 +73,81 @@
 .produtos-grandes .produtos-grandes-dados .comprar:hover {
     background-color: crimson;
 }
+
+@media (max-width: 768px) {
+    .produtos-grandes {
+        min-width: 200px;
+        height: 100px;
+        box-sizing: border-box;
+        margin: 10px;
+        display: flex;
+        justify-content: space-around;
+        flex-grow: 1;
+    }
+    
+    .itens {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #volta, #passa {
+        display: block;
+        width: 15px;
+        height: 15px;
+        text-align: center;
+        color: darkgray;
+        background-color: brown;
+        border: none;
+        cursor: pointer;
+    }
+    
+    #volta:hover, #passa:hover {
+        background-color: darkred;
+        color: white;
+    }
+    
+    .produtos-grandes .itens .item > * {
+        display: none;
+        box-shadow: none;
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .produtos-grandes .itens .item > *:first-child {
+        display: flex;
+        margin: 0;
+    }
+    
+    
+    .produtos-grandes .itens .item:hover > *:first-child {
+        transform: scale(1.1);
+    }
+    
+    .produtos-grandes .produtos-grandes-dados .nome {
+        font-weight: bold;
+        font-size: 75%;
+        margin-left: 10px;
+        margin-top: 20px;
+    }
+    
+    .produtos-grandes .produtos-grandes-dados .linha {
+        width: 20px;
+        border-top: 1px solid black;
+        margin: 10px 0;
+        margin-left: 10px;
+    }
+    
+    .produtos-grandes .produtos-grandes-dados .comprar {
+        color: white;
+        background-color: darkred;
+        margin-left: 20px;
+        padding: 10px 5px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .produtos-grandes .produtos-grandes-dados .comprar:hover {
+        background-color: crimson;
+    }
+}

@@ -37,3 +37,47 @@
 .inicio .mensagem button:active {
     transform: scale(1); /* Reseta o zoom quando o botão é pressionado */
 }
+@media(max-width: 768px){
+    .inicio {
+        min-width: 100%;
+        min-height: 30%;
+        width: 10vw;
+        height: 10vh;
+        position: relative;
+        background: url("./VansFundo.jpg") no-repeat center / cover;
+    }
+    
+    .inicio * {
+        color: white;
+        text-shadow: black 0.1em 0.1em 0.2em;
+    }
+    
+    .inicio .mensagem {
+        margin: 12% 0 0 25%;
+        display: none;
+    }
+    
+    .inicio .mensagem p {
+        margin: 20px 0;
+        display: none;
+    }
+    
+    .inicio .mensagem button {
+        padding: 10px;
+        border: none;
+        background-color: darkred;
+        cursor: pointer; /* Adiciona cursor de mão para indicar interatividade */
+        transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave */
+        display: none;
+    }
+    
+    /* Efeito de Hover no Botão */
+    .inicio .mensagem button:hover {
+        background-color: crimson; /* Altera a cor de fundo quando o mouse passa sobre */
+        transform: scale(1.1); /* Aumenta o botão em 10% */
+    }
+    
+    .inicio .mensagem button:active {
+        transform: scale(1); /* Reseta o zoom quando o botão é pressionado */
+    }
+}

@@ -21,7 +21,6 @@
     align-items: center;
 }
 
-/* .produtos .item-dos-produtos > *:hover {
-    transition: 0.5s;
-    scale: 1.1;
-} */
+@media (max-width: 768px) {
+    
+}
