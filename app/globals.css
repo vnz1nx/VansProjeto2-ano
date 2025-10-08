@@ -1,0 +1,52 @@
+:root {
+  color-scheme: light;
+  font-family: "Inter", "Segoe UI", Roboto, -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", Arial, sans-serif;
+  --cor-fundo: #f5f6f7;
+  --cor-texto: #111111;
+  --cor-texto-suave: #444444;
+  --cor-acento: #c41230;
+  --cor-acento-escuro: #780d1e;
+  --cor-superficie: #ffffff;
+  --cor-superficie-escura: #202124;
+  --raio-borda-grande: 1.5rem;
+  --duracao-transicao: 200ms;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+}
+
+img,
+svg {
+  display: block;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

@@ -1,49 +1,60 @@
-'use client'
-import { useState } from 'react'
-import '../produtoPequeno/produtospequenos.css'
-import ProdutosPequenos from '../produtoPequeno/ProdutosPequenos'
+"use client";
+
+import { useState } from "react";
+import ProdutosPequenos from "../produtoPequeno/ProdutosPequenos";
+import "./produtosgrandes.css";
+
+const shirts = [
+  { id: "camisa1", name: "Camisa GTA San Andreas", price: 70 },
+  { id: "camisa2", name: "Camisa Los Santos", price: 80 },
+  { id: "camisa3", name: "Camisa Grove Street", price: 75 },
+];
 
 export default function ProdutosGrandes() {
-    const camisas = [
-        { id: "camisa1", nome: "CAMISA GTA SAN ANDREAS", valor: "70.00" },
-        { id: "camisa2", nome: "CAMISA LOS SANTOS", valor: "80.00" },
-        { id: "camisa3", nome: "CAMISA GROVE STREET", valor: "75.00" },
-    ];
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const { id, name, price } = shirts[currentIndex];
 
-    const [indiceAtual, setIndiceAtual] = useState(0);
-    const passarCamisa = () => {
-        setIndiceAtual((prevIndice) => (prevIndice + 1) % camisas.length);
-    };
+  const handleNext = () => {
+    setCurrentIndex((index) => (index + 1) % shirts.length);
+  };
 
-    const voltarCamisa = () => {
-        setIndiceAtual((prevIndice) =>
-            (prevIndice - 1 + camisas.length) % camisas.length
-        );
-    };
+  const handlePrevious = () => {
+    setCurrentIndex((index) => (index - 1 + shirts.length) % shirts.length);
+  };
 
-    return (
-        <div className='produtos-grandes'>
-            <div className='produtos-grandes-dados'>
-                <p className='nome'>
-                    NOVOS <br />
-                    ESTILOS <br />
-                    E MAIS
-                </p>
-                <div className='linha'></div>
-                <button className='comprar'>COMPRAR</button>
-            </div>
+  return (
+    <article className="produto-destaque">
+      <div className="produto-destaque__conteudo">
+        <h3 className="produto-destaque__titulo">
+          Novos <br /> Estilos <br /> e mais
+        </h3>
+        <span className="produto-destaque__linha" aria-hidden="true" />
+        <button type="button" className="produto-destaque__cta">
+          Comprar
+        </button>
+      </div>
 
-            <div className='itens'>
-                <button id='volta' onClick={voltarCamisa}>‹</button>
-                <div className='item'>
-                    <ProdutosPequenos
-                        identidade={camisas[indiceAtual].id}
-                        nome={camisas[indiceAtual].nome}
-                        valor={camisas[indiceAtual].valor}
-                    />
-                </div>
-                <button id='passa' onClick={passarCamisa}>›</button>
-            </div>
-        </div>
-    );
+      <div className="produto-destaque__carousel" aria-live="polite">
+        <button
+          type="button"
+          className="produto-destaque__controle"
+          onClick={handlePrevious}
+          aria-label="Ver produto anterior"
+        >
+          ‹
+        </button>
+
+        <ProdutosPequenos id={id} name={name} price={price} />
+
+        <button
+          type="button"
+          className="produto-destaque__controle"
+          onClick={handleNext}
+          aria-label="Ver próximo produto"
+        >
+          ›
+        </button>
+      </div>
+    </article>
+  );
 }

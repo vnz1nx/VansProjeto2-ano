@@ -1,45 +1,125 @@
-'use client';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faList, faFire, faMale, faFemale, faChild, faHeadset, faPhone, faCreditCard, faBox, faEnvelope, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
-import { faFacebook, faTwitter, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import './rodape.css';
+"use client";
+
+import { useMemo, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBox,
+  faChild,
+  faCreditCard,
+  faEnvelope,
+  faFire,
+  faHeadset,
+  faList,
+  faMale,
+  faPhone,
+  faFemale,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  faFacebook,
+  faInstagram,
+  faTwitter,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
+import "./rodape.css";
 
 export default function RodaPe() {
-    function handler() {
-        alert("Email " + document.getElementById("email").value + " Adicionado com sucesso");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const categories = useMemo(
+    () => [
+      {
+        icon: faList,
+        title: "Categorias",
+        links: [
+          { icon: faFire, label: "Novidades" },
+          { icon: faMale, label: "Masculino" },
+          { icon: faFemale, label: "Feminino" },
+          { icon: faChild, label: "Infantil" },
+        ],
+      },
+      {
+        icon: faHeadset,
+        title: "Suporte",
+        links: [
+          { icon: faPhone, label: "Atendimento" },
+          { icon: faCreditCard, label: "Pagamento" },
+          { icon: faBox, label: "Pedidos" },
+        ],
+      },
+      {
+        icon: faEnvelope,
+        title: "Contatos",
+        links: [
+          { icon: faFacebook, label: "Facebook" },
+          { icon: faTwitter, label: "Twitter" },
+          { icon: faInstagram, label: "Instagram" },
+          { icon: faYoutube, label: "YouTube" },
+        ],
+      },
+    ],
+    []
+  );
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!email.trim()) {
+      setMessage("Digite um e-mail válido para se inscrever.");
+      return;
     }
 
-    return (
-        <div className="rodape">
-            <div className="categorias">
-                <p><FontAwesomeIcon icon={faList} /> Categorias</p>
-                <a href="#"><FontAwesomeIcon icon={faFire} /> Novidades</a> <br />
-                <a href="#"><FontAwesomeIcon icon={faMale} /> Masculino</a> <br />
-                <a href="#"><FontAwesomeIcon icon={faFemale} /> Feminino</a> <br />
-                <a href="#"><FontAwesomeIcon icon={faChild} /> Infantil</a>
-            </div>
+    setMessage(`E-mail ${email} cadastrado com sucesso!`);
+    setEmail("");
+  };
 
-            <div className="categorias">
-                <p><FontAwesomeIcon icon={faHeadset} /> Suporte</p>
-                <a href="#"><FontAwesomeIcon icon={faPhone} /> Atendimento</a> <br />
-                <a href="#"><FontAwesomeIcon icon={faCreditCard} /> Pagamento</a> <br />
-                <a href="#"><FontAwesomeIcon icon={faBox} /> Pedidos</a> <br />
-            </div>
+  return (
+    <footer className="rodape">
+      <div className="rodape__conteudo">
+        {categories.map(({ icon, title, links }) => (
+          <div key={title} className="rodape__coluna">
+            <p className="rodape__titulo">
+              <FontAwesomeIcon icon={icon} /> {title}
+            </p>
+            <ul className="rodape__lista">
+              {links.map(({ icon: linkIcon, label }) => (
+                <li key={label}>
+                  <a href="#">
+                    <FontAwesomeIcon icon={linkIcon} /> {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
 
-            <div className="categorias">
-                <p><FontAwesomeIcon icon={faEnvelope} /> Contatos</p>
-                <a href="#"><FontAwesomeIcon icon={faFacebook} /> Facebook</a> <br />
-                <a href="#"><FontAwesomeIcon icon={faTwitter} /> Twitter</a> <br />
-                <a href="#"><FontAwesomeIcon icon={faInstagram} /> Instagram</a> <br />
-                <a href="#"><FontAwesomeIcon icon={faYoutube} /> YouTube</a>
-            </div>
-
-            <div className="categorias">
-                <p><FontAwesomeIcon icon={faEnvelope} /> Inscreva-se</p>
-                <span>Receba notícias em seu e-mail.</span> <br />
-                <input id="email" placeholder="Digite o seu email" />
-                <button onClick={handler}><FontAwesomeIcon icon={faPaperPlane} /> Enviar</button>
-            </div>
+        <div className="rodape__coluna rodape__coluna--formulario">
+          <p className="rodape__titulo">
+            <FontAwesomeIcon icon={faEnvelope} /> Inscreva-se
+          </p>
+          <p className="rodape__texto">
+            Receba as novidades, lançamentos e promoções direto no seu e-mail.
+          </p>
+          <form className="rodape__formulario" onSubmit={handleSubmit}>
+            <label htmlFor="newsletter-email" className="sr-only">
+              Digite o seu e-mail
+            </label>
+            <input
+              id="newsletter-email"
+              type="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              placeholder="Digite o seu e-mail"
+              required
+            />
+            <button type="submit">Inscrever</button>
+          </form>
+          {message && <span className="rodape__mensagem">{message}</span>}
         </div>
-    );
+      </div>
+
+      <div className="rodape__base">
+        <p>© {new Date().getFullYear()} Vans. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+  );
 }
