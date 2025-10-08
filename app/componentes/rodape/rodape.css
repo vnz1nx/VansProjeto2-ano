@@ -1,114 +1,120 @@
-
 .rodape {
-    min-width: 400px;
-    box-sizing: border-box;
-    padding: 50px 10px;
-    background-color: #202124;
-    display: flex;
-    justify-content: space-around;
+  background: var(--cor-superficie-escura);
+  color: rgba(255, 255, 255, 0.88);
+  padding: clamp(3rem, 6vw, 4rem) clamp(1.5rem, 5vw, 4rem);
 }
 
-.rodape .categorias {
-    width: 160px;
+.rodape__conteudo {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: clamp(1.5rem, 4vw, 2.5rem);
 }
 
-.rodape .categorias * {
-    color: lightgray;
-    font-family: Arial, Helvetica, sans-serif;
+.rodape__coluna {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
-.rodape .categorias p {
-    padding: 10px 0;
-    font-size: 120%;
-    color: white;
+.rodape__titulo {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.rodape .categorias a {
-    margin: 7px 0;
-    display: inline-block;
-    text-decoration: none;
-    transition: 500ms;
-}
-.rodape .categorias a:hover {
-    color: #b92f35;
+.rodape__lista {
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
 }
 
-.rodape .categorias span {
-    margin: 10px 0;
-    display: inline-block;
+.rodape__lista a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color var(--duracao-transicao) ease;
 }
 
-.rodape .categorias input {
-    width: 110px;
-    height: 40px;
-    margin: 10px 0;
-    border: 1px solid lightgray;
-    background-color: #202124;
+.rodape__lista a:hover,
+.rodape__lista a:focus-visible {
+  color: #ffffff;
 }
 
-.rodape .categorias button {
-    width: 60%;
-    height: 15%;
-    aspect-ratio: 1;
-    text-align: center;
-    background-color: #b92f35;
+.rodape__coluna--formulario {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  gap: 1rem;
+}
+
+.rodape__texto {
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.6;
+}
+
+.rodape__formulario {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.rodape__formulario input {
+  flex: 1 1 200px;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.rodape__formulario input::placeholder {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.rodape__formulario button {
+  flex: 0 0 auto;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  border: none;
+  background: var(--cor-acento);
+  color: #ffffff;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background var(--duracao-transicao) ease,
+    transform var(--duracao-transicao) ease;
+}
+
+.rodape__formulario button:hover,
+.rodape__formulario button:focus-visible {
+  background: var(--cor-acento-escuro);
+  transform: translateY(-2px);
+}
+
+.rodape__mensagem {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.rodape__base {
+  margin-top: clamp(2rem, 5vw, 3rem);
+  text-align: center;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 @media (max-width: 768px) {
-    
-.rodape {
-    min-width: 400px;
-    box-sizing: border-box;
-    padding: 50px 10px;
-    background-color: #202124;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
+  .rodape__formulario {
+    flex-direction: column;
+    align-items: stretch;
+  }
 
-.rodape .categorias {
-    width: 160px;
-}
-
-.rodape .categorias * {
-    color: lightgray;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.rodape .categorias p {
-    padding: 10px 0;
-    font-size: 120%;
-    color: white;
-}
-
-.rodape .categorias a {
-    margin: 7px 0;
-    display: inline-block;
-    text-decoration: none;
-    transition: 500ms;
-}
-.rodape .categorias a:hover {
-    color: #b92f35;
-}
-
-.rodape .categorias span {
-    margin: 10px 0;
-    display: inline-block;
-}
-
-.rodape .categorias input {
-    width: 110px;
-    height: 40px;
-    margin: 10px 0;
-    border: 1px solid lightgray;
-    background-color: #202124;
-}
-
-.rodape .categorias button {
-    width: 60%;
-    height: 15%;
-    aspect-ratio: 1;
-    text-align: center;
-    background-color: #b92f35;
-}
+  .rodape__formulario button {
+    width: 100%;
+  }
 }
