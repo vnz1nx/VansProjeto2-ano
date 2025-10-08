@@ -1,9 +1,5 @@
-import RepGame from "./componentes/vans/Vans";
+import VansLanding from "./componentes/vans/Vans";
 
 export default function Home() {
-  return (
-    <>
-      <RepGame />
-    </>
-  );
+  return <VansLanding />;
 }

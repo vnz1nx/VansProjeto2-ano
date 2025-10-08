@@ -1,58 +1,59 @@
-.produtos-pequenos {
-    width: 180px;
-    height: 250px;
-    box-sizing: border-box;
-    margin: 10px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-    transition: transform 0.3s ease-in-out;
-    cursor: pointer;
+.produto-pequeno {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1.25rem;
+  border-radius: 1.5rem;
+  background: var(--cor-superficie);
+  box-shadow: 0 18px 45px rgba(10, 10, 10, 0.08);
+  text-align: center;
+  transition: transform var(--duracao-transicao) ease,
+    box-shadow var(--duracao-transicao) ease;
+  width: 100%;
+  height: 100%;
 }
 
-.produtos-pequenos:hover {
-    transform: scale(1.1);
+.produto-pequeno:hover,
+.produto-pequeno:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(10, 10, 10, 0.12);
 }
 
-.produtos-pequenos .imagem {
-    width: 100px;
-    aspect-ratio: 1;
-    background-color: lightgray;
-    transition: transform 0.3s ease-in-out; /* Adiciona transição suave */
+.produto-pequeno__imagem {
+  position: relative;
+  width: clamp(120px, 35vw, 160px);
+  aspect-ratio: 1;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
 }
 
-.produtos-pequenos .imagem:hover {
-    transform: scale(1.1); /* Aumenta a imagem em 10% */
+.produto-pequeno__imagem-foto {
+  object-fit: cover;
 }
 
-.produtos-pequenos .nome {
-    color: black;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 10px;
+.produto-pequeno__nome {
+  font-size: 1rem;
+  text-transform: capitalize;
+  color: var(--cor-texto);
 }
 
-.produtos-pequenos .linha {
-    width: 20px;
-    border-top: 1px solid black;
-    margin: 10px;
+.produto-pequeno__separador {
+  width: 32px;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.15);
 }
 
-.produtos-pequenos .valor {
-    color: red;
+.produto-pequeno__valor {
+  font-weight: 700;
+  color: var(--cor-acento);
 }
 
-#sapato1 { background: url("./imagens/sapato1.jpg") no-repeat center / cover; }
-#sapato2 { background: url("./imagens/sapato2.jpg") no-repeat center / cover; }
-#sapato3 { background: url("./imagens/sapato3.jpg") no-repeat center / contain; }
-#sapato4 { background: url("./imagens/sapato4.jpg") no-repeat center / cover; }
-#sapato5 { background: url("./imagens/sapato5.jpg") no-repeat center / cover; }
-#paisagem1 { background: url("./imagens/paisagem1.jpg") no-repeat center / cover; }
-#paisagem2 { background: url("./imagens/paisagem2.jpg") no-repeat center / cover; }
-#paisagem3 { background: url("./imagens/paisagem3.jpg") no-repeat center / cover; }
-#camisa1 { background: url("./imagens/camisa1.jpg") no-repeat center / cover; }
-#camisa2 { background: url("./imagens/camisa2.jpg") no-repeat center / cover; }
-#camisa3 { background: url("./imagens/camisa3.jpg") no-repeat center / cover; }
+@media (max-width: 768px) {
+  .produto-pequeno {
+    padding: 1.25rem 1rem;
+    gap: 0.75rem;
+  }
+}
