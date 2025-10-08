@@ -1,149 +1,216 @@
 .cabecalho {
-    width: 75%;
-    margin: auto;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  color: #ffffff;
+  z-index: 2;
 }
 
-.cabecalho .pesquisa  {    
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
+.cabecalho__topo {
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto minmax(0, 1fr) auto auto auto;
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+  padding: 1rem 0;
 }
 
-.cabecalho .pesquisa > *:not(.logo) {
-    background-color: transparent;
-    border: transparent;
-    margin: 10px 5px;
+.cabecalho__logo {
+  display: block;
+  width: clamp(120px, 18vw, 160px);
+  aspect-ratio: 3.6 / 1;
+  background: url("./VansLogo.png") center / contain no-repeat;
 }
 
-.cabecalho .pesquisa .logo {
-    min-width: 120px;
-    min-height: 50px;
-    background: url("./VansLogo.png") no-repeat center / cover;
+.cabecalho__campo-busca {
+  position: relative;
+  width: 100%;
 }
 
-.cabecalho .pesquisa select option {
-    color: black;
+.cabecalho__input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  backdrop-filter: blur(8px);
 }
 
-.cabecalho .pesquisa a {
-    text-decoration: none;
+.cabecalho__input::placeholder {
+  color: rgba(255, 255, 255, 0.65);
 }
 
-.cabecalho .pesquisa .tracoBord {
-    width: 80px;
-    height: 50px;
-    border-left: 2px solid lightgray;
+.cabecalho__select {
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
 }
 
-.cabecalho .opcoes {
-    height: 50px;
-    width: 100%;
-    box-sizing: content-box;
-    border-top: 2px solid lightgray;
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
+.cabecalho__select option {
+  color: #111111;
 }
 
-.cabecalho .opcoes .dropdown {
-    position: relative;
-    margin: 10px 5px;
+.cabecalho__links-rapidos {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.6rem 0.75rem;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
-.cabecalho .opcoes .dropdown .dropdown-content{
+.cabecalho__links-rapidos a {
+  text-decoration: none;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--duracao-transicao) ease,
+    color var(--duracao-transicao) ease;
+}
+
+.cabecalho__links-rapidos a:hover,
+.cabecalho__links-rapidos a:focus-visible {
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.cabecalho__menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.cabecalho__menu-toggle:hover,
+.cabecalho__menu-toggle:focus-visible {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.cabecalho__navegacao {
+  margin-top: 0.75rem;
+  width: 100%;
+}
+
+.cabecalho__lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.cabecalho__item {
+  position: relative;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.cabecalho__item-label {
+  display: inline-block;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid transparent;
+  transition: border-color var(--duracao-transicao) ease;
+}
+
+.cabecalho__item:hover .cabecalho__item-label,
+.cabecalho__item:focus-within .cabecalho__item-label {
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.cabecalho__dropdown {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 0.6rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 180px;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: rgba(0, 0, 0, 0.82);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity var(--duracao-transicao) ease,
+    transform var(--duracao-transicao) ease;
+}
+
+.cabecalho__dropdown a {
+  color: rgba(255, 255, 255, 0.86);
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.cabecalho__item:hover .cabecalho__dropdown,
+.cabecalho__item:focus-within .cabecalho__dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+@media (max-width: 1024px) {
+  .cabecalho__topo {
+    grid-template-columns: auto minmax(0, 1fr) auto auto;
+  }
+
+  .cabecalho__links-rapidos {
     display: none;
-    padding: 10px;
-    background-color: white;
-    border-radius: 5px;
-    position: absolute;
-    z-index: 1;
+  }
 }
 
-.cabecalho .opcoes .dropdown:hover .dropdown-content{
+@media (max-width: 768px) {
+  .cabecalho__topo {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 0.75rem;
+  }
+
+  .cabecalho__select {
+    display: none;
+  }
+
+  .cabecalho__menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cabecalho__navegacao {
+    display: none;
+    margin-top: 1.5rem;
+    background: rgba(0, 0, 0, 0.65);
+    border-radius: 1.25rem;
+    padding: 1.25rem;
+    backdrop-filter: blur(6px);
+  }
+
+  .cabecalho--menu-aberto .cabecalho__navegacao {
     display: block;
-}
+  }
 
-.cabecalho .opcoes .dropdown .dropdown-content a {
-    color: black;
-    text-decoration: none;
-    text-shadow: none;
-}
+  .cabecalho__lista {
+    flex-direction: column;
+    gap: 1rem;
+  }
 
-@media(max-width: 768px){
-    .cabecalho {
-        width: 100%;
-        height: 20%;
-        display: flex;
-    }
-    
-    .cabecalho .pesquisa > *:not(.logo,.search) {
-        background-color: transparent;
-        border: transparent;
-        display: none;
-    }
-    .search {
-        width: 50%;
-        height: 80%;
-    }
-    
-    .cabecalho .pesquisa .logo {
-        width: 100px;
-        height: 20px;
-        background: url("./VansLogo.png") no-repeat center / cover;
-    }
-    
-    .cabecalho .pesquisa select option {
-        color: black;
-    }
-    
-    .cabecalho .pesquisa a {
-        text-decoration: none;
-    }
-    
-    .cabecalho .pesquisa .tracoBord {
-        width: 80px;
-        height: 50px;
-        border-left: 2px solid lightgray;
-    }
-    
-    .cabecalho .opcoes {
-        height: 50px;
-        width: 100%;
-        box-sizing: content-box;
-        border-top: 2px solid lightgray;
-        list-style: none;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        display: none;
-    }
-    
-    .cabecalho .opcoes .dropdown {
-        position: relative;
-        margin: 10px 5px;
-    }
-    
-    .cabecalho .opcoes .dropdown .dropdown-content{
-        display: none;
-        padding: 10px;
-        background-color: white;
-        border-radius: 5px;
-        position: absolute;
-        z-index: 1;
-    }
-    
-    .cabecalho .opcoes .dropdown:hover .dropdown-content{
-        display: block;
-    }
-    
-    .cabecalho .opcoes .dropdown .dropdown-content a {
-        color: black;
-        text-decoration: none;
-        text-shadow: none;
-    }
+  .cabecalho__dropdown {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    background: transparent;
+    padding: 0.75rem 0 0.25rem;
+  }
+
+  .cabecalho__dropdown a {
+    color: rgba(255, 255, 255, 0.85);
+  }
 }

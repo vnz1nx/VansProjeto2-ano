@@ -1,32 +1,51 @@
+import ProdutosPequenos from "./produtoPequeno/ProdutosPequenos";
+import ProdutosGrandes from "./produtoGrande/ProdutosGrandes";
+import ProdutosMedios from "./produtoMedio/ProdutosMedios";
+import "./produtos.css";
 
-import './produtoPequeno/produtospequenos.css'
-import ProdutosPequenos from './produtoPequeno/ProdutosPequenos'
+const smallProducts = [
+  { id: "sapato1", name: "Sapatênis branco", price: 149.99 },
+  { id: "sapato2", name: "Sapato branco", price: 154.99 },
+  { id: "sapato3", name: "Sapato marrom claro", price: 130.0 },
+  { id: "sapato4", name: "Sapato marrom escuro", price: 140.0 },
+  { id: "sapato5", name: "Tênis azul acinzentado", price: 119.99 },
+  { id: "paisagem1", name: "Acampamento no campo", price: 730.0 },
+  { id: "paisagem2", name: "Viagem para a praia no Havaí", price: 2300.0 },
+  { id: "paisagem3", name: "Trilha no campo e na floresta", price: 250.0 },
+];
 
-import './produtoMedio/produtosmedios.css'
-import ProdutosMedios from './produtoMedio/ProdutosMedios'
+const mediumProducts = [
+  { id: "skatista", highlights: ["Novo", "Estilo", "Skates"] },
+  { id: "sapato", highlights: ["Uniforme", "Amigável", "Fashion"] },
+];
 
-import './produtoGrande/produtosgrandes.css'
-import ProdutosGrandes from './produtoGrande/ProdutosGrandes'
+export default function Produtos() {
+  return (
+    <section className="produtos" id="produtos">
+      <div className="produtos__cabecalho">
+        <span className="produtos__etiqueta">Produtos em destaque</span>
+        <h2 className="produtos__titulo">Encontre o par perfeito para cada momento</h2>
+        <p className="produtos__descricao">
+          Selecionamos lançamentos e clássicos Vans para completar sua
+          coleção. Escolha seu estilo favorito ou explore novas combinações.
+        </p>
+      </div>
 
-import './produtos.css'
+      <div className="produtos__grid">
+        {smallProducts.slice(0, 5).map((produto) => (
+          <ProdutosPequenos key={produto.id} {...produto} />
+        ))}
 
-export default function Produtos(){
-    return(
-        <div className='produtos'>
-            <h2>PRODUTOS</h2>
-            <div className='item-dos-produtos'>
-                <ProdutosPequenos identidade="sapato1" nome="sapatênis branco" valor="149.99"/>
-                <ProdutosPequenos identidade="sapato2" nome="sapato branco" valor="154.99"/>
-                <ProdutosPequenos identidade="sapato3" nome="sapato marrom claro" valor="130.00"/>
-                <ProdutosPequenos identidade="sapato4" nome="sapato marrom escuro" valor="140.00"/>
-                <ProdutosPequenos identidade="sapato5" nome="tênis azul acinzentado" valor="119.99"/>
-                <ProdutosGrandes/>
-                <ProdutosMedios nome={["NOVO","ESTILO","SKATES"]} identidade='skatista'/>
-                <ProdutosPequenos identidade="paisagem1" nome="acampamento no campo" valor="730.00"/>
-                <ProdutosPequenos identidade="paisagem2" nome="viagem para a praia no havaí" valor="2,300.00"/>
-                <ProdutosPequenos identidade="paisagem3" nome="trilha no campo e na floresta" valor="250.00"/>
-                <ProdutosMedios nome={["UNIFORME","AMIGAVEL","FASHION"]} identidade='sapato'/>
-            </div>
-        </div>
-    )
+        <ProdutosGrandes />
+
+        {mediumProducts.map((produto) => (
+          <ProdutosMedios key={produto.id} {...produto} />
+        ))}
+
+        {smallProducts.slice(5).map((produto) => (
+          <ProdutosPequenos key={produto.id} {...produto} />
+        ))}
+      </div>
+    </section>
+  );
 }
