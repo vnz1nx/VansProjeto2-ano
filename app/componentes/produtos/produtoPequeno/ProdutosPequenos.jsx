@@ -1,17 +1,30 @@
+import Image from "next/image";
+
 const currencyFormatter = new Intl.NumberFormat("pt-BR", {
   style: "currency",
   currency: "BRL",
   maximumFractionDigits: 2,
 });
 
-export default function ProdutosPequenos({ id, name, price }) {
+export default function ProdutosPequenos({
+  id,
+  name,
+  price,
+  imageUrl,
+  imageAlt,
+}) {
   return (
     <article className="produto-pequeno" aria-labelledby={`${id}-titulo`}>
-      <div
-        className={`produto-pequeno__imagem produto-pequeno__imagem--${id}`}
-        role="presentation"
-        aria-hidden="true"
-      />
+      <div className="produto-pequeno__imagem" aria-hidden="true">
+        <Image
+          src={imageUrl}
+          alt={imageAlt ?? name}
+          fill
+          sizes="(max-width: 768px) 45vw, 200px"
+          className="produto-pequeno__imagem-foto"
+          priority={id === "sapato1"}
+        />
+      </div>
       <h3 id={`${id}-titulo`} className="produto-pequeno__nome">
         {name}
       </h3>

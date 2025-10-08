@@ -88,6 +88,10 @@
   height: auto;
 }
 
+.produto-destaque .produto-pequeno__imagem {
+  background: rgba(255, 255, 255, 0.12);
+}
+
 .produto-destaque .produto-pequeno__nome,
 .produto-destaque .produto-pequeno__valor {
   color: #ffffff;

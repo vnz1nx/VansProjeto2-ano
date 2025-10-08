@@ -1,4 +1,6 @@
-export default function ProdutosMedios({ highlights, id }) {
+import Image from "next/image";
+
+export default function ProdutosMedios({ highlights, id, imageUrl, imageAlt }) {
   return (
     <article className="produto-medio" aria-labelledby={`${id}-destaque`}>
       <div className="produto-medio__conteudo">
@@ -12,11 +14,16 @@ export default function ProdutosMedios({ highlights, id }) {
           Comprar
         </button>
       </div>
-      <div
-        className={`produto-medio__imagem produto-medio__imagem--${id}`}
-        role="presentation"
-        aria-hidden="true"
-      />
+      <div className="produto-medio__imagem" aria-hidden="true">
+        <Image
+          src={imageUrl}
+          alt={imageAlt ?? highlights.join(" ")}
+          fill
+          sizes="(max-width: 768px) 80vw, 420px"
+          className="produto-medio__imagem-foto"
+          priority={id === "skatista"}
+        />
+      </div>
     </article>
   );
 }

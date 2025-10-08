@@ -21,12 +21,16 @@
 }
 
 .produto-pequeno__imagem {
+  position: relative;
   width: clamp(120px, 35vw, 160px);
   aspect-ratio: 1;
   border-radius: 1rem;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.produto-pequeno__imagem-foto {
+  object-fit: cover;
 }
 
 .produto-pequeno__nome {
@@ -45,50 +49,6 @@
 .produto-pequeno__valor {
   font-weight: 700;
   color: var(--cor-acento);
-}
-
-.produto-pequeno__imagem--sapato1 {
-  background-image: url("https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=900&q=80");
-}
-
-.produto-pequeno__imagem--sapato2 {
-  background-image: url("https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=900&q=80");
-}
-
-.produto-pequeno__imagem--sapato3 {
-  background-image: url("https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=900&q=80");
-}
-
-.produto-pequeno__imagem--sapato4 {
-  background-image: url("https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=900&q=80");
-}
-
-.produto-pequeno__imagem--sapato5 {
-  background-image: url("https://images.unsplash.com/photo-1512493125646-a094d3dba6b4?auto=format&fit=crop&w=900&q=80");
-}
-
-.produto-pequeno__imagem--paisagem1 {
-  background-image: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80");
-}
-
-.produto-pequeno__imagem--paisagem2 {
-  background-image: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80");
-}
-
-.produto-pequeno__imagem--paisagem3 {
-  background-image: url("https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=80");
-}
-
-.produto-pequeno__imagem--camisa1 {
-  background-image: url("https://images.unsplash.com/photo-1584270354949-1fcc332eb9a0?auto=format&fit=crop&w=900&q=80");
-}
-
-.produto-pequeno__imagem--camisa2 {
-  background-image: url("https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80");
-}
-
-.produto-pequeno__imagem--camisa3 {
-  background-image: url("https://images.unsplash.com/photo-1525171254930-643fc658b64e?auto=format&fit=crop&w=900&q=80");
 }
 
 @media (max-width: 768px) {
