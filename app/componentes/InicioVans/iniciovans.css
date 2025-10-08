@@ -1,83 +1,94 @@
-.inicio {
-    min-width: 400px;
-    min-height: 400px;
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-    background: url("./VansFundo.jpg") no-repeat center / cover;
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: clamp(520px, 85vh, 760px);
+  padding: clamp(1.5rem, 5vw, 2.5rem) clamp(1.25rem, 5vw, 3rem)
+    clamp(3rem, 8vw, 4.5rem);
+  color: #ffffff;
+  background: url("./VansFundo.jpg") center / cover no-repeat;
+  overflow: hidden;
 }
 
-.inicio * {
-    color: white;
-    text-shadow: black 0.1em 0.1em 0.2em;
+.hero__shell {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 6vh, 3rem);
 }
 
-.inicio .mensagem {
-    margin: 12% 0 0 25%;
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.35));
+  mix-blend-mode: multiply;
 }
 
-.inicio .mensagem p {
-    margin: 20px 0;
+.hero > *:not(.hero__overlay) {
+  position: relative;
+  z-index: 1;
 }
 
-.inicio .mensagem button {
-    padding: 10px;
-    border: none;
-    background-color: darkred;
-    cursor: pointer; /* Adiciona cursor de mão para indicar interatividade */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave */
+.hero__content {
+  max-width: min(540px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 0;
 }
 
-/* Efeito de Hover no Botão */
-.inicio .mensagem button:hover {
-    background-color: crimson; /* Altera a cor de fundo quando o mouse passa sobre */
-    transform: scale(1.1); /* Aumenta o botão em 10% */
+.hero__title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
 }
 
-.inicio .mensagem button:active {
-    transform: scale(1); /* Reseta o zoom quando o botão é pressionado */
+.hero__description {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 8px 25px rgba(0, 0, 0, 0.45);
 }
-@media(max-width: 768px){
-    .inicio {
-        min-width: 100%;
-        min-height: 30%;
-        width: 10vw;
-        height: 10vh;
-        position: relative;
-        background: url("./VansFundo.jpg") no-repeat center / cover;
-    }
-    
-    .inicio * {
-        color: white;
-        text-shadow: black 0.1em 0.1em 0.2em;
-    }
-    
-    .inicio .mensagem {
-        margin: 12% 0 0 25%;
-        display: none;
-    }
-    
-    .inicio .mensagem p {
-        margin: 20px 0;
-        display: none;
-    }
-    
-    .inicio .mensagem button {
-        padding: 10px;
-        border: none;
-        background-color: darkred;
-        cursor: pointer; /* Adiciona cursor de mão para indicar interatividade */
-        transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave */
-        display: none;
-    }
-    
-    /* Efeito de Hover no Botão */
-    .inicio .mensagem button:hover {
-        background-color: crimson; /* Altera a cor de fundo quando o mouse passa sobre */
-        transform: scale(1.1); /* Aumenta o botão em 10% */
-    }
-    
-    .inicio .mensagem button:active {
-        transform: scale(1); /* Reseta o zoom quando o botão é pressionado */
-    }
+
+.hero__cta {
+  align-self: flex-start;
+  padding: 0.85rem 2.75rem;
+  border-radius: 999px;
+  background: var(--cor-acento);
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: transform var(--duracao-transicao) ease,
+    background-color var(--duracao-transicao) ease;
+}
+
+.hero__cta:hover,
+.hero__cta:focus-visible {
+  background: var(--cor-acento-escuro);
+  transform: translateY(-2px);
+}
+
+.hero__cta:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 560px;
+    padding: clamp(1rem, 4vw, 1.5rem) clamp(1rem, 5vw, 2rem) 3rem;
+    justify-content: flex-start;
+  }
+
+  .hero__shell {
+    gap: 2.5rem;
+  }
+
+  .hero__content {
+    gap: 1.25rem;
+  }
 }
