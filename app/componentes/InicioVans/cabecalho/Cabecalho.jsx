@@ -1,105 +1,116 @@
-'use client';
-import { useEffect } from 'react';
-import './cabecalho.css'
+"use client";
 
-export default function Cabecalho(){
-    useEffect(() => {
-        const menu = document.querySelector(".menu-toggle");
-        const cabecalho = document.querySelector(".cabecalho");
-    
-        if (window.innerWidth <= 768) {
-            cabecalho.classList.add("mobile");
-        }
-    
-        // menu.addEventListener("click", () => {
-        //     sidebar.classList.toggle("collapsed");
-        // });
-    }, []);
-    
+import { useMemo, useState } from "react";
+import "./cabecalho.css";
 
-    return(
-        <div className='cabecalho'>
-                    <div className='pesquisa'>
-                        <div className='logo'></div>
-                        <input type="search" className='search' placeholder="Old Skooll..."/>
-                        <select>
-                            <option>MAIS</option>
-                            <option>CALÇAS</option>
-                            <option>BLUSAS</option>
-                            <option>TENIS</option>
-                        </select>
-                        <a href="#" className='Ajuda'>AJUDA</a>
-                        <a href="#" className='Lojas'>LOJAS</a>
-                        <a href="#" className='Conta'>CONTA</a>
-                    </div>
+const navigationSections = [
+  {
+    label: "Web",
+    links: ["Aplicativo", "Contato", "Lojas físicas"],
+  },
+  {
+    label: "Novidades",
+    links: ["Blusas", "Calças", "Tênis", "Conjuntos"],
+  },
+  {
+    label: "Kids",
+    links: ["Tênis", "Brindes", "Prêmios"],
+  },
+  {
+    label: "Feminino",
+    links: ["Blusas", "Calças", "Tênis", "Vestidos"],
+  },
+  {
+    label: "Masculino",
+    links: ["Blusas", "Calças", "Tênis", "Jaquetas"],
+  },
+  {
+    label: "Latest",
+    links: ["Contratos", "Funcionários", "Lojas"],
+  },
+  {
+    label: "Sale",
+    links: ["Contratos", "Peças", "Lojas"],
+  },
+];
 
-                    <ul className="opcoes">
-                        <li className="dropdown" id="Web">
-                            <span>WEB</span>
-                            <div className="dropdown-content">
-                                <a href="#">Aplicativo</a><br />
-                                <a href="#">Contato</a><br />
-                                <a href="#">Lojas Fisicas</a>
-                            </div>
-                        </li>
+export default function Cabecalho() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-                        <li className="dropdown" id="Novidades">
-                            <span>NOVIDADES</span>
-                            <div className="dropdown-content">
-                                <a href="#">Blusas</a><br />
-                                <a href="#">Calças</a><br />
-                                <a href="#">Tenis</a><br />
-                                <a href="#">Conjutos</a>
-                            </div>
-                        </li>
+  const quickActions = useMemo(
+    () => [
+      { label: "Ajuda", href: "#" },
+      { label: "Lojas", href: "#" },
+      { label: "Conta", href: "#" },
+    ],
+    []
+  );
 
-                        <li className="dropdown" id="Kids">
-                            <span>KIDS</span>
-                            <div className="dropdown-content">
-                                <a href="#">Tenis</a><br />
-                                <a href="#">Brindes</a><br />
-                                <a href="#">Premios</a>
-                            </div>
-                        </li>
+  const handleToggleMenu = () => {
+    setIsMenuOpen((state) => !state);
+  };
 
-                        <li className="dropdown" id="Feminino">
-                            <span>FEMININO</span>
-                            <div className="dropdown-content">
-                                <a href="#">Blusas</a><br />
-                                <a href="#">Calças</a><br />
-                                <a href="#">Tenis</a><br />
-                                <a href="#">Vestidos</a>
-                            </div>
-                        </li>
+  return (
+    <header className={`cabecalho ${isMenuOpen ? "cabecalho--menu-aberto" : ""}`}>
+      <div className="cabecalho__topo">
+        <a className="cabecalho__logo" href="#" aria-label="Página inicial Vans" />
+        <label className="cabecalho__campo-busca">
+          <span className="sr-only">Buscar produtos</span>
+          <input
+            className="cabecalho__input"
+            type="search"
+            placeholder="Buscar Old Skool..."
+            spellCheck={false}
+            aria-label="Buscar produtos"
+          />
+        </label>
+        <select className="cabecalho__select" aria-label="Filtrar categoria">
+          <option value="mais">Mais</option>
+          <option value="calcas">Calças</option>
+          <option value="blusas">Blusas</option>
+          <option value="tenis">Tênis</option>
+        </select>
+        <nav className="cabecalho__links-rapidos" aria-label="Acesso rápido">
+          {quickActions.map(({ label, href }) => (
+            <a key={label} href={href}>
+              {label}
+            </a>
+          ))}
+        </nav>
+        <button
+          type="button"
+          className="cabecalho__menu-toggle"
+          onClick={handleToggleMenu}
+          aria-expanded={isMenuOpen}
+          aria-controls="navegacao-principal"
+        >
+          <span aria-hidden="true">{isMenuOpen ? "✕" : "☰"}</span>
+          <span className="sr-only">
+            {isMenuOpen ? "Fechar menu" : "Abrir menu"}
+          </span>
+        </button>
+      </div>
 
-                        <li className="dropdown" id="Masculino">
-                            <span>MASCULINO</span>
-                            <div className="dropdown-content">
-                                <a href="#">Blusas</a><br />
-                                <a href="#">Calças</a><br />
-                                <a href="#">Tenis</a><br />
-                                <a href="#">Jaquetas</a>
-                            </div>
-                        </li>
-
-                        <li className="dropdown" id="Latest">
-                            <span>LATEST</span>
-                            <div className="dropdown-content">
-                                <a href="#">Contratos</a><br />
-                                <a href="#">Funcionarios</a><br />
-                                <a href="#">Lojas</a>
-                            </div>
-                        </li>
-
-                        <li className="dropdown" id="Sale">
-                            <span>SALE</span>
-                            <div className="dropdown-content">
-                                <a href="#">Contratos</a><br />
-                                <a href="#">Peças</a><br />
-                                <a href="#">Lojas</a>
-                            </div>
-                        </li>
-                    </ul>
-        </div>
-    )
+      <nav
+        id="navegacao-principal"
+        className="cabecalho__navegacao"
+        aria-label="Navegação principal"
+      >
+        <ul className="cabecalho__lista">
+          {navigationSections.map(({ label, links }) => (
+            <li key={label} className="cabecalho__item">
+              <span className="cabecalho__item-label">{label}</span>
+              <div className="cabecalho__dropdown">
+                {links.map((link) => (
+                  <a key={link} href="#">
+                    {link}
+                  </a>
+                ))}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </header>
+  );
 }
